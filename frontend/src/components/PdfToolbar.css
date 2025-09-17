@@ -1,0 +1,90 @@
+.pdf-toolbar {
+  background: #e9ecef;
+  padding: 10px 15px;
+  border-bottom: 1px solid #dee2e6;
+  flex-shrink: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pdf-toolbar h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #495057;
+  font-weight: 600;
+}
+
+.filename-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filename-input-container label {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.filename-input {
+  padding: 4px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 120px;
+  background: white;
+}
+
+.filename-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.file-extension {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.rename-btn {
+  padding: 4px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 4px;
+  transition: all 0.2s ease;
+}
+
+.rename-btn:hover {
+  background: #f8f9fa;
+  border-color: #007bff;
+}
+
+.rename-btn.edit {
+  color: #007bff;
+}
+
+.rename-btn.save {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.rename-btn.save:hover {
+  background: #28a745;
+  color: white;
+}
+
+.rename-btn.cancel {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.rename-btn.cancel:hover {
+  background: #dc3545;
+  color: white;
+}

@@ -1,0 +1,84 @@
+---
+alwaysApply: true
+---
+---
+alwaysApply: true
+---
+# LaTeX Web Editor - Cursor Rules
+
+## Project Overview
+A web-based LaTeX editor with split-pane layout: LaTeX input on the left, PDF preview on the right.
+
+## Technology Stack
+- **Backend**: Flask (Python)
+- **Frontend**: React
+- **LaTeX**: System LaTeX installation (pdflatex)
+
+## Project Structure
+```
+latex-editor/
+├── backend/                    # Flask backend
+│   ├── app.py                 # Main Flask application
+│   ├── temp/                  # Temporary LaTeX/PDF files
+│   └── requirements.txt       # Python dependencies
+├── frontend/                  # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── LatexEditor.js    # Left pane: LaTeX text editor
+│   │   │   ├── PdfViewer.js      # Right pane: PDF display
+│   │   │   └── SplitPane.js      # Split layout container
+│   │   ├── App.js             # Main React component
+│   │   └── index.js           # React entry point
+│   └── package.json           # Node.js dependencies
+├── README.md
+└── .gitignore
+```
+
+## Backend Requirements (Flask)
+- **Location**: All backend code in `backend/` folder
+- **Main file**: `backend/app.py`
+- **Core functionality**:
+  - POST `/api/compile` endpoint that receives LaTeX text
+  - Saves LaTeX to temporary `.tex` file
+  - Executes `pdflatex` command using subprocess
+  - Returns compiled PDF file or error message
+  - Handles file cleanup after compilation
+- **Dependencies**: Flask, subprocess (built-in)
+- **Error handling**: Catch LaTeX compilation errors and return meaningful messages
+
+## Frontend Requirements (React)
+- **Location**: All frontend code in `frontend/` folder
+- **Layout**: Split-pane design (50/50 width split)
+  - **Left pane**: LaTeX text editor (textarea or code editor component)
+  - **Right pane**: PDF viewer (iframe or embed element)
+- **Core functionality**:
+  - Real-time LaTeX editing
+  - "Compile" button to send LaTeX to backend
+  - Display compiled PDF in right pane
+  - Show compilation errors if any
+  - Basic LaTeX template pre-loaded
+- **Styling**: Simple, clean interface with clear split between panes
+- **API calls**: HTTP POST to backend `/api/compile` endpoint
+
+## Development Guidelines
+- **Separation**: Keep LaTeX compilation logic in backend only
+- **Error handling**: Display LaTeX errors clearly to user
+- **File management**: Backend handles all temporary file creation/deletion
+- **Default template**: Pre-populate editor with basic LaTeX document structure
+- **PDF serving**: Backend serves PDF files with appropriate headers
+
+## Basic LaTeX Template
+```latex
+\documentclass{article}
+\begin{document}
+
+Hello, LaTeX World!
+
+\end{document}
+```
+
+## API Contract
+- **Endpoint**: POST `/api/compile`
+- **Request body**: `{"latex": "LaTeX source code"}`
+- **Success response**: PDF file with `Content-Type: application/pdf`
+- **Error response**: `{"error": "Compilation error message"}`

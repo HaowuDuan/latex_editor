@@ -1,0 +1,9 @@
+.pdf-viewer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  overflow: hidden;
+  position: relative;
+}
+
